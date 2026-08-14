@@ -22,8 +22,21 @@ export default defineConfig({
   retries: process.env.CI ? 2 : 0,
   /* Opt out of parallel tests on CI. */
   workers: process.env.CI ? 1 : undefined,
+  /*
+   * `quiet: true` stops the `line` reporter from also dumping raw stdout
+   * live (it implements onStdOut itself) — without it, TestListener's
+   * buffered per-test replay would duplicate everything `line` already
+   * printed. `line` still shows progress ticks and the final summary,
+   * neither of which are gated by `quiet`.
+   */
+  quiet: true,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
-  reporter: 'html',
+  reporter: [
+    ['line'],
+    ['html'],
+    ['allure-playwright'],
+    ['./utils/TestListener.js'],
+  ],
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('')`. */
