@@ -10,3 +10,7 @@ node_modules/
 # Allure
 /allure-results/
 /allure-report/
+
+# Local-only docs / tooling config
+/ASSUMPTIONS.md
+/.claude/
