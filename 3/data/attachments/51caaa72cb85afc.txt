@@ -1,0 +1,10 @@
+2026-08-14 11:04:23 info: 	Clicking on Bredband nav toggle (Handla)
+2026-08-14 11:04:24 info: 	Successfully clicked Bredband nav toggle (Handla)
+2026-08-14 11:04:24 info: 	Clicking on Bredband dropdown link
+2026-08-14 11:04:24 info: 	Successfully clicked Bredband dropdown link
+2026-08-14 11:04:25 info: 	Filling text "Wrong address" in Bredband address search input
+2026-08-14 11:04:27 info: 	Successfully filled text "Wrong address" in Bredband address search input
+2026-08-14 11:04:27 info: 	Asserting text content for: Address-not-found alert is shown for an unrecognized address
+2026-08-14 11:04:27 info: 	Assertion passed: Address-not-found alert is shown for an unrecognized address
+2026-08-14 11:04:27 info: 	Asserting collection is empty for: Featured product grid stays empty for an unrecognized address
+2026-08-14 11:04:27 info: 	Assertion passed: Featured product grid stays empty for an unrecognized address
