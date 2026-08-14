@@ -1,0 +1,498 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: bredband.spec.js >> Bredband address search >> shows featured products for a serviceable address
+- Location: tests/bredband.spec.js:9:3
+
+# Error details
+
+```
+AssertionError: Assertion failed: Featured product grid has results for a serviceable address
+  cause: expect(received).toBeGreaterThan(expected)
+
+Expected: > 0
+Received:   0
+
+Call Log:
+- Timeout 5000ms exceeded while waiting on the predicate
+```
+
+# Page snapshot
+
+```yaml
+- generic [ref=f3e1]:
+  - generic [ref=f3e3]:
+    - generic [ref=f3e4]:
+      - generic [ref=f3e5]:
+        - link "Till innehåll" [ref=f3e6]:
+          - /url: "#main"
+        - link "Till sök" [ref=f3e7]:
+          - /url: "#site-search"
+        - banner [ref=f3e8]:
+          - generic [ref=f3e9]:
+            - navigation "Marknad" [ref=f3e10]:
+              - list [ref=f3e11]:
+                - listitem [ref=f3e12]:
+                  - link "Privat" [ref=f3e13] [cursor=pointer]:
+                    - /url: /
+                - listitem [ref=f3e14]:
+                  - link "Företag" [ref=f3e15] [cursor=pointer]:
+                    - /url: /foretag/
+                - listitem [ref=f3e16]:
+                  - link "Fastighetsägare" [ref=f3e17] [cursor=pointer]:
+                    - /url: /fastighetsagare/
+            - link [ref=f3e18]:
+              - /url: /
+              - img "Telenor logo" [ref=f3e19]
+            - generic [ref=f3e20]:
+              - navigation "Huvudmeny" [ref=f3e22]:
+                - list [ref=f3e23]:
+                  - listitem [ref=f3e24]:
+                    - button "Mobilt" [ref=f3e25] [cursor=pointer]:
+                      - img [ref=f3e26]: 
+                    - text:     
+                  - listitem [ref=f3e28]:
+                    - button "Bredband" [ref=f3e29] [cursor=pointer]:
+                      - img [ref=f3e30]: 
+                    - text: 
+                  - listitem [ref=f3e32]:
+                    - button "Tv & streaming" [ref=f3e33] [cursor=pointer]:
+                      - img [ref=f3e34]: 
+                    - text: 
+                  - listitem [ref=f3e36]:
+                    - link "Erbjudanden" [ref=f3e37] [cursor=pointer]:
+                      - /url: /handla/erbjudanden/
+              - search [ref=f3e41]:
+                - generic [ref=f3e42]:
+                  - img [ref=f3e43]: 
+                  - generic [ref=f3e44]: Sök
+                  - searchbox "Sök" [ref=f3e45]
+            - generic [ref=f3e46]:
+              - link "Support" [ref=f3e47] [cursor=pointer]:
+                - /url: /support/
+                - img [ref=f3e48]: 
+              - link "Mitt Telenor" [ref=f3e50] [cursor=pointer]:
+                - /url: /mitt-telenor/
+                - img [ref=f3e51]: 
+          - separator [ref=f3e53]
+        - generic [ref=f3e55]:
+          - alert [ref=f3e56]:
+            - paragraph [ref=f3e59]:
+              - paragraph [ref=f3e60]:
+                - text: Var först med kommande nyheter och erbjudanden.
+                - link "Signa upp dig och vinn AirPods Pro 3." [ref=f3e61]:
+                  - /url: /handla/erbjudanden/tekniknyheter/
+          - button "Stäng meddelande" [ref=f3e62] [cursor=pointer]:
+            - img [ref=f3e63]: 
+        - navigation "Brödsmulor" [ref=f3e64]:
+          - generic [ref=f3e66]:
+            - text: 
+            - list [ref=f3e67]:
+              - listitem [ref=f3e68]:
+                - link "Start" [ref=f3e69]:
+                  - /url: /
+              - listitem [ref=f3e70]:
+                - img [ref=f3e71]: 
+                - link "Handla" [ref=f3e72]:
+                  - /url: /handla
+              - listitem [ref=f3e73]:
+                - img [ref=f3e74]: 
+                - generic "Bredband" [ref=f3e75]
+            - text: 
+      - main [ref=f3e76]:
+        - generic [ref=f3e78]:
+          - generic [ref=f3e82]:
+            - heading "Bredband via fiber" [level=1] [ref=f3e83]
+            - paragraph [ref=f3e85]: Sök på din adress för att se priser och utbud för bredband via fiber.
+          - generic [ref=f3e89]:
+            - heading "Vilken adress vill du ha bredband på?" [level=2] [ref=f3e90]
+            - generic [ref=f3e91]:
+              - generic [ref=f3e92]:
+                - img [ref=f3e93]: 
+                - combobox "Sök adress" [expanded] [active] [ref=f3e94]: Kungsgatan 103, Uppsala
+                - generic [ref=f3e95]:
+                  - status
+                  - button "Sök adress" [ref=f3e96] [cursor=pointer]:
+                    - img [ref=f3e98]: 
+              - listbox "Adresslista" [ref=f3e99]:
+                - option "KUNGSGATAN 103, UPPSALA" [selected] [ref=f3e100]
+              - text: 
+          - list "Unikt säljerbjudande" [ref=f3e103]:
+            - listitem [ref=f3e104]:
+              - img [ref=f3e106]: 
+              - text: Testa i 30 dagar – returnera om du inte är nöjd
+            - listitem [ref=f3e107]:
+              - img [ref=f3e109]: 
+              - text: Snabb och stabil uppkoppling
+            - listitem [ref=f3e110]:
+              - img [ref=f3e112]: 
+              - text: Komborabatt när du också har mobil hos Telenor
+          - generic [ref=f3e115]:
+            - heading "Våra olika bredband" [level=3] [ref=f3e120]
+            - list [ref=f3e121]:
+              - listitem [ref=f3e122]:
+                - article [ref=f3e123]:
+                  - img "Tjej som gejmar" [ref=f3e125]
+                  - generic [ref=f3e126]:
+                    - heading "Bredband via fiber" [level=3] [ref=f3e127]
+                    - paragraph [ref=f3e129]: Vårt snabbaste och mest kraftfulla bredband med hastigheter upp till 2 500 Mbit/s. Perfekt för familjer där många surfar och streamar samtidigt.
+                    - link "Sök på din adress" [ref=f3e130] [cursor=pointer]:
+                      - /url: /handla/bredband/#sok
+              - listitem [ref=f3e131]:
+                - article [ref=f3e132]:
+                  - img "Telenors 5G router på ett skrivbord" [ref=f3e134]
+                  - generic [ref=f3e135]:
+                    - heading "Bredband via 5G" [level=3] [ref=f3e136]
+                    - paragraph [ref=f3e138]: Telenor har Sveriges snabbaste 5G-nät enligt Bredbandskollen för tredje gången i rad. Router och nöjdhetsgaranti ingår.
+                    - link "Köp Bredband via 5G" [ref=f3e139] [cursor=pointer]:
+                      - /url: /handla/bredband/5g/
+          - generic [ref=f3e142]:
+            - img "Flera människor framför en laptop" [ref=f3e144]
+            - generic [ref=f3e146]:
+              - heading "Inbyggt skydd med Nätskydd" [level=2] [ref=f3e147]
+              - generic [ref=f3e148]:
+                - paragraph [ref=f3e149]: Nätskydd ingår i bredbandet och blockerar automatiskt skadliga webbplatser, virus och bedrägeriförsök. Du får en säkrare uppkoppling för hela hemmet – utan att behöva installera något.
+                - paragraph [ref=f3e150]:
+                  - emphasis [ref=f3e151]: "* Ingår i Mobilt Bredband, Bredband via 5G och Bredband via fiber i Telenors nät, samt vissa öppna fibernät."
+              - link [ref=f3e153] [cursor=pointer]:
+                - /url: /handla/tjanster/natskydd/
+                - generic [ref=f3e154]:
+                  - text: Läs mer om Nätskydd
+                  - img [ref=f3e155]: 
+          - generic [ref=f3e158]:
+            - generic [ref=f3e160]:
+              - heading "Snabbast nerladdning med Telenors 5G!" [level=2] [ref=f3e161]
+              - paragraph [ref=f3e163]: Vill du ett ha snabbt, stabilt och prisvärt 5G-bredband? Då ska du välja Telenor. Vi har Sveriges snabbaste 5G-nät för tredje gången i rad enligt Bredbandskollen.
+              - link [ref=f3e165] [cursor=pointer]:
+                - /url: /handla/bredband/toppbetyg-for-telenors-5g-nat/
+                - generic [ref=f3e166]:
+                  - text: Läs mer om testerna
+                  - img [ref=f3e167]: 
+            - img "Sveriges snabbaste 5G enligt Bredbandskollen" [ref=f3e169]
+          - generic [ref=f3e176]:
+            - heading "Vanliga frågor och förköpsinformation" [level=2] [ref=f3e177]
+            - list [ref=f3e178]:
+              - listitem [ref=f3e179]:
+                - group [ref=f3e180]:
+                  - generic "Vad är det för skillnad på fiber och 5G?" [ref=f3e181] [cursor=pointer]:
+                    - text: Vad är det för skillnad på fiber och 5G?
+                    - img [ref=f3e182]: 
+              - listitem [ref=f3e183]:
+                - group [ref=f3e184]:
+                  - generic "Kan jag surfa i 5G?" [ref=f3e185] [cursor=pointer]:
+                    - text: Kan jag surfa i 5G?
+                    - img [ref=f3e186]: 
+              - listitem [ref=f3e187]:
+                - group [ref=f3e188]:
+                  - generic "Förköpsinformation" [ref=f3e189] [cursor=pointer]:
+                    - text: Förköpsinformation
+                    - img [ref=f3e190]: 
+              - listitem [ref=f3e191]:
+                - group [ref=f3e192]:
+                  - generic "Hur lång tid tar det att få bredband via fiber?" [ref=f3e193] [cursor=pointer]:
+                    - text: Hur lång tid tar det att få bredband via fiber?
+                    - img [ref=f3e194]: 
+              - listitem [ref=f3e195]:
+                - group [ref=f3e196]:
+                  - generic "Hur fungerar nöjdhetsgarantin för bredband?" [ref=f3e197] [cursor=pointer]:
+                    - text: Hur fungerar nöjdhetsgarantin för bredband?
+                    - img [ref=f3e198]: 
+            - button "Visa fler frågor och svar" [ref=f3e200] [cursor=pointer]: Visa 1 till
+          - generic [ref=f3e204]:
+            - heading "Krångliga ord" [level=2] [ref=f3e206]
+            - generic [ref=f3e207]:
+              - generic [ref=f3e208]:
+                - term [ref=f3e209]: Bredband
+                - definition [ref=f3e210]:
+                  - paragraph [ref=f3e212]: Ett vardagligt uttryck för en snabb, fast uppkoppling till internet som levereras antingen via mobilnätet eller via fiber.
+              - generic [ref=f3e213]:
+                - term [ref=f3e214]: Fiber
+                - definition [ref=f3e215]:
+                  - paragraph [ref=f3e217]: En teknik där data skickas som ljussignaler genom tunna glasfiberkablar. Fiber ansluts med kabel hela vägen fram till bostaden och ger den snabbaste och mest stabila internetuppkopplingen.
+              - generic [ref=f3e218]:
+                - term [ref=f3e219]: 5G
+                - definition [ref=f3e220]:
+                  - paragraph [ref=f3e222]: En snabbare uppkoppling än 4G. För bredband så innebär det att du kopplar upp dig via mobilnätet istället för fiberkablar.
+              - generic [ref=f3e223]:
+                - term [ref=f3e224]: Wifi
+                - definition [ref=f3e225]:
+                  - paragraph [ref=f3e227]: En trådlös teknik som används för att ansluta t ex en dator, till internet via en wifi-router som är ansluten till ett bredband.
+              - generic [ref=f3e228]:
+                - term [ref=f3e229]: Router
+                - definition [ref=f3e230]:
+                  - paragraph [ref=f3e232]: Utrustning som möjliggör att du kan få wifi till din bostad för att exempelvis låta flera personer surfa samtidigt.
+          - generic [ref=f3e236]:
+            - heading "Övriga tjänster" [level=2] [ref=f3e238]
+            - list [ref=f3e239]:
+              - listitem [ref=f3e240]:
+                - generic [ref=f3e241] [cursor=pointer]:
+                  - img "Gata med villor" [ref=f3e242]
+                  - generic [ref=f3e243]:
+                    - heading "Villafiber" [level=2] [ref=f3e245]
+                    - link "Läs mer om Villafiber" [ref=f3e246]:
+                      - /url: /handla/bredband/villafiber/
+                      - img [ref=f3e248]: 
+              - listitem [ref=f3e249]:
+                - generic [ref=f3e250] [cursor=pointer]:
+                  - img "Två barn sitter på köksgovlet med varsin enhet" [ref=f3e251]
+                  - generic [ref=f3e252]:
+                    - heading "Mobilt bredband" [level=2] [ref=f3e254]
+                    - link "Läs mer om Mobilt bredband" [ref=f3e255]:
+                      - /url: /handla/mobilt-bredband/
+                      - img [ref=f3e257]: 
+              - listitem [ref=f3e258]:
+                - generic [ref=f3e259] [cursor=pointer]:
+                  - img "En router från Telenor" [ref=f3e260]
+                  - generic [ref=f3e261]:
+                    - heading "Routrar" [level=2] [ref=f3e263]
+                    - link "Läs mer om Routrar" [ref=f3e264]:
+                      - /url: /handla/routrar/
+                      - img [ref=f3e266]: 
+    - contentinfo [ref=f3e268]:
+      - link "Tillbaka till innehåll" [ref=f3e269]:
+        - /url: "#main"
+      - generic [ref=f3e270]:
+        - generic [ref=f3e271]:
+          - link [ref=f3e273]:
+            - /url: /
+            - img "Telenor logo" [ref=f3e274]
+          - navigation "Sidfot" [ref=f3e275]:
+            - generic [ref=f3e276]:
+              - strong [ref=f3e277]: Rekommenderat
+              - list [ref=f3e278]:
+                - listitem [ref=f3e279]:
+                  - link "Sveriges bästa nät" [ref=f3e280]:
+                    - /url: /handla/sveriges-basta-nat/
+                - listitem [ref=f3e281]:
+                  - link "Jämför iPhone 17-modeller" [ref=f3e282]:
+                    - /url: /handla/mobiler/apple/jamfor-iphone/
+                - listitem [ref=f3e283]:
+                  - link "Mobiltelefoner" [ref=f3e284]:
+                    - /url: https://www.telenor.se/handla/mobiler/
+                - listitem [ref=f3e285]:
+                  - link "Mobilabonnemang" [ref=f3e286]:
+                    - /url: https://www.telenor.se/handla/mobilabonnemang/
+                - listitem [ref=f3e287]:
+                  - link "Bredband" [ref=f3e288]:
+                    - /url: https://www.telenor.se/handla/bredband/
+                - listitem [ref=f3e289]:
+                  - link "Tv och streaming" [ref=f3e290]:
+                    - /url: /handla/tv/
+            - generic [ref=f3e291]:
+              - strong [ref=f3e292]: Om Telenor
+              - list [ref=f3e293]:
+                - listitem [ref=f3e294]:
+                  - link "Om företaget" [ref=f3e295]:
+                    - /url: /om-telenor/
+                - listitem [ref=f3e296]:
+                  - link "Våra kontor" [ref=f3e297]:
+                    - /url: /om-telenor/vara-kontor/
+                - listitem [ref=f3e298]:
+                  - link "Press" [ref=f3e299]:
+                    - /url: /press/
+                - listitem [ref=f3e300]:
+                  - link "Jobba hos oss" [ref=f3e301]:
+                    - /url: /jobb/
+                - listitem [ref=f3e302]:
+                  - link "Hållbarhet" [ref=f3e303]:
+                    - /url: /hallbarhet/
+                - listitem [ref=f3e304]:
+                  - link "Integritet" [ref=f3e305]:
+                    - /url: /support/integritet/
+                - listitem [ref=f3e306]:
+                  - link "Wholesale" [ref=f3e307]:
+                    - /url: /foretag/wholesale/
+            - generic [ref=f3e308]:
+              - strong [ref=f3e309]: Köpinformation
+              - list [ref=f3e310]:
+                - listitem [ref=f3e311]:
+                  - link "Uppgradera mobilen när du vill" [ref=f3e312]:
+                    - /url: /handla/tjanster/change/
+                - listitem [ref=f3e313]:
+                  - link "Hitta din närmaste Telenor-butik" [ref=f3e314]:
+                    - /url: /hitta-butik/
+                - listitem [ref=f3e315]:
+                  - link "Leverans" [ref=f3e316]:
+                    - /url: /varfor-telenor/leverans/
+                - listitem [ref=f3e317]:
+                  - link "Priser, villkor och blanketter" [ref=f3e318]:
+                    - /url: /support/priser-villkor-och-blanketter/
+                - listitem [ref=f3e319]:
+                  - link "Om du har ångrat dig" [ref=f3e320]:
+                    - /url: /support/priser-villkor-och-blanketter/reklamation-angerratt-och-oppet-kop/
+                - listitem [ref=f3e321]:
+                  - link "Support" [ref=f3e322]:
+                    - /url: /support/
+                - listitem [ref=f3e323]:
+                  - link "Tillgänglighet" [ref=f3e324]:
+                    - /url: /support/tillganglighet/
+        - generic [ref=f3e325]:
+          - list [ref=f3e326]:
+            - listitem [ref=f3e327]:
+              - link [ref=f3e328]:
+                - /url: https://itunes.apple.com/se/app/mitt-telenor-se/id1154435018
+                - img "Hämta i App Store" [ref=f3e329]
+            - listitem [ref=f3e330]:
+              - link [ref=f3e331]:
+                - /url: https://play.google.com/store/apps/details?id=se.telenor.mytelenor&hl=sv
+                - img "Ladda ned på Google Play" [ref=f3e332]
+          - list [ref=f3e333]:
+            - listitem [ref=f3e334]:
+              - link "Instagram" [ref=f3e335]:
+                - /url: https://www.instagram.com/telenorsverige
+                - img [ref=f3e336]: 
+            - listitem [ref=f3e337]:
+              - link "YouTube" [ref=f3e338]:
+                - /url: https://www.youtube.com/user/telenorsverige
+                - img [ref=f3e339]: 
+            - listitem [ref=f3e340]:
+              - link "LinkedIn" [ref=f3e341]:
+                - /url: https://www.linkedin.com/company/1963?trk=tyah&trkInfo=clickedVertical:company%2CclickedEntityId:1963%2Cidx:2-1-4%2CtarId:1480486441576%2Ctas:telenor%20sverige
+                - img [ref=f3e342]: 
+        - separator [ref=f3e343]
+        - generic [ref=f3e344]:
+          - generic [ref=f3e345]: telenor
+          - generic [ref=f3e346]:
+            - list [ref=f3e347]:
+              - listitem [ref=f3e348]:
+                - button "Cookie-inställningar" [ref=f3e349] [cursor=pointer]
+            - generic [ref=f3e350]: © Telenor Sverige AB
+  - button "Open chat" [ref=f3e352] [cursor=pointer]
+  - generic:
+    - iframe [ref=f3e353]:
+      - button "Öppna Messenger" [ref=f7e1] [cursor=pointer]
+    - iframe
+```
+
+# Test source
+
+```ts
+  7   |   locator,
+  8   |   attribute,
+  9   |   values,
+  10  |   partial
+  11  | ) => {
+  12  |   const elements = await locator.all();
+  13  |   const found = await Promise.all(
+  14  |     elements.map((el) => el.getAttribute(attribute))
+  15  |   );
+  16  | 
+  17  |   for (const expected of values) {
+  18  |     const hit = partial
+  19  |       ? found.some((attr) => attr?.includes(expected))
+  20  |       : found.includes(expected);
+  21  | 
+  22  |     if (!hit) {
+  23  |       const kind = partial ? 'containing' : 'with';
+  24  |       throw new Error(
+  25  |         `Expected to find attribute "${attribute}" ${kind} value "${expected}" in elements. Found values: ${found.join(', ')}`
+  26  |       );
+  27  |     }
+  28  |   }
+  29  | };
+  30  | 
+  31  | const ElementAssertions = {
+  32  |   assertContainsText: async (locator, text, description, options) => {
+  33  |     Logger.info(`Asserting text content for: ${description}`);
+  34  |     try {
+  35  |       if (options?.matchAny && Array.isArray(text)) {
+  36  |         const elements = await locator.all();
+  37  |         const elementTexts = await Promise.all(
+  38  |           elements.map(async (el) => (await el.textContent()) || '')
+  39  |         );
+  40  | 
+  41  |         const hasMatch = text.some((expectedText) =>
+  42  |           elementTexts.some((elementText) =>
+  43  |             typeof expectedText === 'string'
+  44  |               ? elementText.includes(expectedText)
+  45  |               : expectedText.test(elementText)
+  46  |           )
+  47  |         );
+  48  | 
+  49  |         if (!hasMatch) {
+  50  |           throw new Error(
+  51  |             `Expected to find at least one element containing any of: [${text.join(', ')}], but found: [${elementTexts.join(', ')}]`
+  52  |           );
+  53  |         }
+  54  |       } else {
+  55  |         await expect(locator).toContainText(text, {
+  56  |           timeout: options?.timeout,
+  57  |         });
+  58  |       }
+  59  |       Logger.info(`Assertion passed: ${description}`);
+  60  |     } catch (error) {
+  61  |       if (error instanceof Error) {
+  62  |         throw new AssertionError(description, error);
+  63  |       }
+  64  |       throw error;
+  65  |     }
+  66  |   },
+  67  | 
+  68  |   assertHasAttribute: async (
+  69  |     locator,
+  70  |     attribute,
+  71  |     value,
+  72  |     description,
+  73  |     partial = false
+  74  |   ) => {
+  75  |     Logger.info(`Asserting attribute "${attribute}" for: ${description}`);
+  76  |     try {
+  77  |       if (Array.isArray(value)) {
+  78  |         await assertAttributeValuesOnMany(locator, attribute, value, partial);
+  79  |       } else if (partial) {
+  80  |         const attributeValue = await locator.getAttribute(attribute);
+  81  |         if (!attributeValue?.includes(value)) {
+  82  |           throw new Error(
+  83  |             `Expected attribute "${attribute}" to contain value "${value}", but found "${attributeValue}".`
+  84  |           );
+  85  |         }
+  86  |       } else {
+  87  |         await expect(locator).toHaveAttribute(attribute, value);
+  88  |       }
+  89  |       Logger.info(`Assertion passed: ${description}`);
+  90  |     } catch (error) {
+  91  |       if (error instanceof Error) {
+  92  |         throw new AssertionError(description, error);
+  93  |       }
+  94  |       throw error;
+  95  |     }
+  96  |   },
+  97  | 
+  98  |   assertIsNotEmpty: async (locator, description, options) => {
+  99  |     Logger.info(`Asserting collection is not empty for: ${description}`);
+  100 |     try {
+  101 |       await expect
+  102 |         .poll(() => locator.count(), { timeout: options?.timeout })
+  103 |         .toBeGreaterThan(0);
+  104 |       Logger.info(`Assertion passed: ${description}`);
+  105 |     } catch (error) {
+  106 |       if (error instanceof Error) {
+> 107 |         throw new AssertionError(description, error);
+      |               ^ AssertionError: Assertion failed: Featured product grid has results for a serviceable address
+  108 |       }
+  109 |       throw error;
+  110 |     }
+  111 |   },
+  112 | 
+  113 |   assertIsEmpty: async (locator, description, options) => {
+  114 |     Logger.info(`Asserting collection is empty for: ${description}`);
+  115 |     try {
+  116 |       await expect(locator).toHaveCount(0, { timeout: options?.timeout });
+  117 |       Logger.info(`Assertion passed: ${description}`);
+  118 |     } catch (error) {
+  119 |       if (error instanceof Error) {
+  120 |         throw new AssertionError(description, error);
+  121 |       }
+  122 |       throw error;
+  123 |     }
+  124 |   },
+  125 | };
+  126 | 
+  127 | module.exports = { ElementAssertions };
+  128 | 
+```

@@ -1,0 +1,10 @@
+2026-08-14 11:19:31 info: 	Clicking on Bredband nav toggle (Handla)
+2026-08-14 11:19:32 info: 	Successfully clicked Bredband nav toggle (Handla)
+2026-08-14 11:19:32 info: 	Clicking on Bredband dropdown link
+2026-08-14 11:19:33 info: 	Successfully clicked Bredband dropdown link
+2026-08-14 11:19:34 info: 	Filling text "Kungsgatan 103, Uppsala" in Bredband address search input
+2026-08-14 11:19:37 info: 	Successfully filled text "Kungsgatan 103, Uppsala" in Bredband address search input
+2026-08-14 11:19:37 info: 	Asserting collection is not empty for: Featured product grid has results for a serviceable address
+2026-08-14 11:19:38 info: 	Assertion passed: Featured product grid has results for a serviceable address
+2026-08-14 11:19:38 info: 	Asserting text content for: Featured product grid contains the expected 5G broadband offer
+2026-08-14 11:19:38 info: 	Assertion passed: Featured product grid contains the expected 5G broadband offer
