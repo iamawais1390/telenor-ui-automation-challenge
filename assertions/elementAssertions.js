@@ -1,3 +1,4 @@
+// @ts-check
 const { expect } = require('@playwright/test');
 const Logger = require('../utils/logger');
 const { AssertionError } = require('./assertionError');

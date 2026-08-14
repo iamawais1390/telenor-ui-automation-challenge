@@ -1,3 +1,4 @@
+// @ts-check
 const bredband = {
   validAddress: 'Kungsgatan 103, Uppsala',
   expectedProductText: 'Bredband via 5G – 250 Mbit/s',

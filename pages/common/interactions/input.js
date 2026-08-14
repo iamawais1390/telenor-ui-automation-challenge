@@ -1,3 +1,4 @@
+// @ts-check
 const Logger = require('../../../utils/logger');
 
 /** Slower keystrokes for fields that drop characters when typed too fast. */
@@ -67,7 +68,8 @@ async function fillInputField({
       });
     }
     throw new Error(
-      `Failed to fill text "${displayText}" in ${name}: ${error.message}`
+      `Failed to fill text "${displayText}" in ${name}: ${error.message}`,
+      { cause: error }
     );
   }
 }

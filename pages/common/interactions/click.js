@@ -1,3 +1,4 @@
+// @ts-check
 const { expect } = require('@playwright/test');
 const Logger = require('../../../utils/logger');
 
@@ -17,7 +18,9 @@ async function click({ locator, name, logAction = true }) {
         stack: error.stack,
       });
     }
-    throw new Error(`Failed to click ${name}: ${error.message}`);
+    throw new Error(`Failed to click ${name}: ${error.message}`, {
+      cause: error,
+    });
   }
 }
 

@@ -1,3 +1,4 @@
+// @ts-check
 /**
  * Wraps the underlying Playwright/runtime error with a human-readable description
  * so assertion failures surface intent instead of raw matcher output.

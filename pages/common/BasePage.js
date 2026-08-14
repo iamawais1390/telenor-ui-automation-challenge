@@ -1,18 +1,27 @@
+// @ts-check
 const { expect } = require('@playwright/test');
 const Logger = require('../../utils/logger');
 const interact = require('./interactions');
 
 class BasePage {
+  /** @param {import('@playwright/test').Page} page */
   constructor(page) {
     this.page = page;
   }
 
+  /**
+   * @template {BasePage} T
+   * @this {new (page: import('@playwright/test').Page) => T}
+   * @param {import('@playwright/test').Page} page
+   * @returns {Promise<T>}
+   */
   static async create(page) {
     const instance = new this(page);
     await instance.waitForPageLoad();
     return instance;
   }
 
+  /** @returns {{ selector: import('@playwright/test').Locator }} */
   get pageElement() {
     throw new Error(`${this.constructor.name} must implement "pageElement".`);
   }
@@ -26,7 +35,8 @@ class BasePage {
       const errorMessage =
         error instanceof Error ? error.message : String(error);
       throw new Error(
-        `Wrong page detected: Expected ${pageName} but page element not found. ${errorMessage}`
+        `Wrong page detected: Expected ${pageName} but page element not found. ${errorMessage}`,
+        { cause: error }
       );
     }
   }
@@ -41,6 +51,12 @@ class BasePage {
     Logger.info(`Passed: ${description}`);
   }
 
+  /**
+   * @template {BasePage} T
+   * @param {() => Promise<void>} action
+   * @param {new (page: import('@playwright/test').Page) => T} TargetPage
+   * @returns {Promise<T>}
+   */
   async navigateTo(action, TargetPage) {
     await action();
     const instance = new TargetPage(this.page);

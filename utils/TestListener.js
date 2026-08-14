@@ -1,3 +1,4 @@
+// @ts-check
 const Logger = require('./logger');
 
 const TEST_SEPARATOR =
