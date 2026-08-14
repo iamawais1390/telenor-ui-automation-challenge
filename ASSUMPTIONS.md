@@ -4,6 +4,18 @@ Running log of decisions made during this challenge, folded into `README.md`'s s
 
 ---
 
+## Lint/typecheck setup adapted from a prior project (not this repo's own invention)
+
+`eslint.config.mjs`, `jsconfig.json`, and the `lint`/`typecheck` npm scripts + workflows mirror a validated setup from a prior take-home challenge (`iamawais1390/trello-automation-challenge`), adapted for this repo's differences:
+
+- That project uses `"type": "module"` (ESM, `import`/`export` throughout); this one uses `"type": "commonjs"` (`require`/`module.exports`, per this project's established convention). `eslint.config.mjs` sets `sourceType: 'commonjs'` accordingly (not `'module'`), and `jsconfig.json` sets `"module": "CommonJS"`/`"moduleResolution": "Node"` (not `NodeNext`). `playwright.config.js` is the one exception — Playwright's config loader accepts `import`/`export` regardless of `package.json`'s `type` — so it gets its own `sourceType: 'module'` override block in `eslint.config.mjs`.
+- `typescript` was pinned to `^5.9.3` rather than the `^7.x` version npm resolved by default, matching what the reference project validated (the reference's README notes they deliberately avoided the very new 7.x during their own setup).
+- `eslint-plugin-playwright`'s `expect-expect` rule's `assertFunctionNames` option only matches the **bare trailing property name** of a call expression (e.g. `assertIsNotEmpty`), not a dotted path like `ElementAssertions.assertIsNotEmpty` or a glob like `*.assertIsNotEmpty` — verified by reading the rule's source (`dig()`/`isIdentifier()` in `eslint-plugin-playwright/dist/index.cjs`), since both those more "obvious" forms silently failed to match and left tests flagged as having no assertions.
+- Running `eslint`'s recommended config for the first time surfaced a real, worth-fixing issue in three files (`BasePage.js`, `click.js`, `input.js`): each re-threw a new `Error` inside a `catch` block without chaining the original via the `cause` option (rule: `preserve-caught-error`). Fixed by adding `{ cause: error }` to each `throw new Error(...)`.
+- Running `tsc` for the first time surfaced two real gaps once `// @ts-check` was added to every owned `.js` file: `BasePage`'s `pageElement` getter had no return-type annotation (so `waitForPageLoad`'s `this.pageElement.selector` access and every subclass override of `pageElement` failed to typecheck), and `BasePage.create()`/`navigateTo()` weren't polymorphic (calling `HomePage.create(page)` typechecked as returning a plain `BasePage`, so `homePage.goToBredband()` didn't resolve). Fixed with JSDoc `@template`/`@this` annotations mirroring the explicit TypeScript generics (`static create<T extends BasePage>(this: new (page: Page) => T, ...): Promise<T>`) from the original page-object design this project's `BasePage.js` was based on.
+
+---
+
 ## The "Handla" step has no literal UI element
 
 The brief's step 2 is "Click **Handla**." Investigated the live site (`telenor.se`) directly: there is no nav element, link, or button anywhere on the homepage with the literal text "Handla" — checked every `<a href="/handla/">`/`<a href="/handla">` on the page and found zero. A `/handla/` landing page does exist (breadcrumb-reachable from subpages, titled "Handla | Här hittar du hela vårt utbud"), but nothing on the homepage links to it directly.

@@ -1,3 +1,4 @@
+// @ts-check
 const winston = require('winston');
 
 const Logger = winston.createLogger({

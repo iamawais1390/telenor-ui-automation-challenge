@@ -21,6 +21,9 @@ npx playwright test --project=chromium        # run on one browser
 npx playwright test -g "serviceable address"  # run by test name
 npx playwright test --ui                      # interactive UI mode
 npx playwright show-report                    # view the last HTML report
+
+npm run lint                                  # ESLint (core rules + eslint-plugin-playwright on tests/)
+npm run typecheck                             # tsc --noEmit, enforcing the // @ts-check pragma used throughout
 ```
 
 ## Architecture
@@ -48,13 +51,13 @@ This requires `quiet: true` in the config — without it, `line`'s own `onStdOut
 
 ## CI / CD
 
-One GitHub Actions workflow (`.github/workflows/test.yml`), triggered on every push/PR to `main` (plus manual `workflow_dispatch`):
+Three independent GitHub Actions workflows, each its own status check, run on every push/PR to `main`:
 
-- Installs Playwright's browsers (chromium, firefox, webkit) and runs the suite.
-- Uploads the Playwright HTML report as a downloadable artifact on every run.
-- On pushes/dispatches against `main` only, additionally generates the Allure report (via `simple-elf/allure-report-action`, a Docker-based action that bundles its own Java runtime — no JDK setup needed on the runner) and publishes it to `allure-reports-branch`, which GitHub Pages serves at the URL above.
+- **Lint** (`.github/workflows/lint.yml`)
+- **Typecheck** (`.github/workflows/typecheck.yml`)
+- **Test** (`.github/workflows/test.yml`, plus manual `workflow_dispatch`) — installs Playwright's browsers (chromium, firefox, webkit), runs the suite, and uploads the Playwright HTML report as a downloadable artifact on every run. On pushes/dispatches against `main` only, additionally generates the Allure report (via `simple-elf/allure-report-action`, a Docker-based action that bundles its own Java runtime — no JDK setup needed on the runner) and publishes it to `allure-reports-branch`, which GitHub Pages serves at the URL above.
 
-Branch protection on `main` requires a pull request for every change (no direct pushes, including for the repo owner) and the branch to be up to date before merging.
+Branch protection on `main` requires a pull request for every change (no direct pushes, including for the repo owner), all three checks to pass, and the branch to be up to date before merging.
 
 ### Allure report history
 

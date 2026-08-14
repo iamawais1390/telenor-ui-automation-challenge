@@ -1,3 +1,4 @@
+// @ts-check
 const { click } = require('./click');
 const { fillInputField } = require('./input');
 

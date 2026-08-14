@@ -1,3 +1,4 @@
+// @ts-check
 const { BasePage } = require('./common/BasePage');
 const { BredbandPage } = require('./bredband');
 
