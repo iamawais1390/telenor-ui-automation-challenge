@@ -1,0 +1,7 @@
+2026-08-14 11:25:31 info: 	Clicking on Bredband nav toggle (Handla)
+2026-08-14 11:25:31 info: 	Successfully clicked Bredband nav toggle (Handla)
+2026-08-14 11:25:31 info: 	Clicking on Bredband dropdown link
+2026-08-14 11:25:32 info: 	Successfully clicked Bredband dropdown link
+2026-08-14 11:25:33 info: 	Filling text "Kungsgatan 103, Uppsala" in Bredband address search input
+2026-08-14 11:25:36 info: 	Successfully filled text "Kungsgatan 103, Uppsala" in Bredband address search input
+2026-08-14 11:25:36 info: 	Asserting collection is not empty for: Featured product grid has results for a serviceable address

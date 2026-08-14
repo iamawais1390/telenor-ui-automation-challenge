@@ -1,0 +1,2 @@
+2026-08-14 11:24:44 info: 	Asserting collection is empty for: Featured product grid is empty before a search
+2026-08-14 11:24:44 info: 	Assertion passed: Featured product grid is empty before a search
